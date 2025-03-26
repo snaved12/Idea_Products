@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            color: black;
+        }
+        .product-card img {
+            max-width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Product Catalog</h1>
+    <div class="product-grid">
+        {% for product in products %}
+        <a href="{{ url_for('get_product_page', id=product.id) }}" class="product-card">
+            <img src="{{ url_for('serve_image', filename=product.image) }}" alt="{{ product.name }}">
+            <h3>{{ product.name }}</h3>
+            <p>₹{{ product.price }}</p>
+        </a>
+        {% endfor %}
+    </div>
+</body>
+</html>

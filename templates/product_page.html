@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }} - Product Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .image-section {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-section img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .details-section {
+            flex: 2;
+            padding: 20px;
+        }
+        .product-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .product-category {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .product-price {
+            font-size: 20px;
+            color: #b12704;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .buy-buttons button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            background: #ff9900;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="image-section">
+        <img src="{{ url_for('serve_image', filename=image) }}" alt="{{ name }}">
+    </div>
+    <div class="details-section">
+        <div class="product-name">{{ name }}</div>
+        <div class="product-category">Category: {{ category }}</div>
+        <div class="product-price">₹{{ price }}</div>
+        <div class="buy-buttons">
+            <button class="add-to-cart">Add to Cart</button>
+            <button class="buy-now">Buy Now</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
