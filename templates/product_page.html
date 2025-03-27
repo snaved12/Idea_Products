@@ -3,83 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ name }} - Product Details</title>
+    <title>BVStore - {{ name }}</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
+
+        /* Header */
+        .header {
+            background-color: #ff9900;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Main container */
         .container {
             display: flex;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 40px auto;
             background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
+
+        /* Image section */
         .image-section {
             flex: 1;
-            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
+
         .image-section img {
             max-width: 100%;
-            max-height: 400px;
+            max-height: 350px;
             object-fit: contain;
             border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: #fff;
         }
+
+        /* Details section */
         .details-section {
             flex: 2;
             padding: 20px;
         }
+
         .product-name {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
+            color: #333;
             margin-bottom: 10px;
         }
+
         .product-category {
+            font-size: 16px;
             color: #666;
             margin-bottom: 15px;
         }
+
         .product-price {
-            font-size: 20px;
+            font-size: 24px;
             color: #b12704;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
+
+        /* Buttons */
+        .buy-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
         .buy-buttons button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
+            flex: 1;
+            padding: 12px;
             border: none;
             cursor: pointer;
             font-size: 16px;
             border-radius: 5px;
-            background: #ff9900;
+            transition: 0.3s ease;
+        }
+
+        .add-to-cart {
+            background: #ffa41c;
             color: white;
+            font-weight: bold;
+        }
+
+        .buy-now {
+            background: #ff4c00;
+            color: white;
+            font-weight: bold;
+        }
+
+        .buy-buttons button:hover {
+            opacity: 0.85;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
+
+<!-- BVStore Header -->
+<div class="header">
+    BVStore
+</div>
+
+<!-- Product Container -->
 <div class="container">
+    <!-- Product Image -->
     <div class="image-section">
         <img src="{{ url_for('serve_image', filename=image) }}" alt="{{ name }}">
     </div>
+
+    <!-- Product Details -->
     <div class="details-section">
         <div class="product-name">{{ name }}</div>
         <div class="product-category">Category: {{ category }}</div>
         <div class="product-price">${{ price }}</div>
         <div class="buy-buttons">
-            <button class="add-to-cart">Add to Cart</button>
-            <button class="buy-now">Buy Now</button>
+            <button class="add-to-cart">🛒 Add to Cart</button>
+            <button class="buy-now">⚡ Buy Now</button>
         </div>
     </div>
 </div>
+
+<!-- Footer -->
+<div class="footer">
+    © 2025 BVStore. All rights reserved.
+</div>
+
 </body>
 </html>
